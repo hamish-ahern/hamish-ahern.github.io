@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hamish Ahern</title>
+<meta name="description" content="Hamish Ahern: product and delivery in Melbourne. I turn early-stage products into things teams can ship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE personal site for a product and delivery person: calm, precise, confident
+   IDEA a well-run product board: work moves through Define, Deliver, Measure
+   PICTURE a full-width board with three lanes holding his six projects as cards
+   COLOUR white ground, ink #101418, slate, one warm yellow #ffd84a for what matters
+   TYPE Manrope 800 for display, Manrope for text
+   LAYOUT title across the top, board beneath it full width; phone stacks lanes */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#101418);--ink:light-dark(#101418,#eef1f4);--soft:light-dark(#5b6673,#9aa5b1);--line:light-dark(#e3e7eb,#262d35);--lane:light-dark(#f4f6f8,#171d24);--card:light-dark(#ffffff,#1d242c);--y:#ffd84a;--yink:#101418}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(36px,5vw,80px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+nav{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:14px max(5vw,16px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;letter-spacing:-.01em}
+.mono{width:34px;height:34px;border-radius:50%;background:var(--y);color:var(--yink);display:grid;place-items:center;font-size:13px;font-weight:800}
+nav ul{display:flex;gap:clamp(12px,3vw,28px);list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav ul a{text-decoration:none;font-weight:600;color:var(--soft);padding:10px 0;display:inline-block}
+nav ul a:hover,nav ul a:focus-visible{color:var(--ink)}
+.hero{padding-bottom:28px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,4vw,64px);align-items:end}
+h1{font-size:clamp(36px,5.4vw,60px);line-height:1.04;letter-spacing:-.03em;font-weight:800;margin:0;text-wrap:balance}
+.lede{font-size:17px;color:var(--soft);margin:0 0 18px;max-width:46ch}
+.now{font-size:15px;margin:0 0 20px}
+.now b{font-weight:700}
+.cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;font-weight:700;text-decoration:none;border:1.5px solid var(--ink)}
+.btn.primary{background:var(--ink);color:var(--bg)}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible,nav a:focus-visible,.kc:focus-visible{outline:3px solid var(--y);outline-offset:3px}
+.board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;background:var(--lane);border-radius:20px;padding:14px;position:relative}
+.lane{display:flex;flex-direction:column;gap:12px;padding:6px}
+.lh{display:flex;justify-content:space-between;align-items:baseline;font-weight:800;font-size:15px;padding:4px 4px 6px;border-bottom:2px solid var(--line)}
+.lh span{font-weight:600;font-size:13px;color:var(--soft)}
+.lane.on .lh{border-color:var(--y)}
+.kc{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;text-decoration:none;box-shadow:0 1px 0 var(--line);transition:transform .2s,box-shadow .2s;animation:drop .6s ease both}
+.kc:hover{transform:translateY(-2px);box-shadow:0 8px 20px -12px rgba(16,20,24,.35)}
+.kc small{display:block;font-size:13px;color:var(--soft);font-weight:600}
+.kc strong{display:block;font-size:16px;line-height:1.3;margin:2px 0 10px;letter-spacing:-.01em}
+.kc .fig{display:inline-block;font-size:13px;font-weight:800;padding:3px 9px;border-radius:999px;background:var(--lane)}
+.kc.live .fig{background:var(--y);color:var(--yink)}
+.lane:nth-child(2) .kc{animation-delay:.12s}
+.lane:nth-child(3) .kc{animation-delay:.24s}
+@keyframes drop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:26px 20px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;background:var(--y);color:var(--yink)}
+.stat b{display:block;font-size:clamp(32px,4.2vw,48px);line-height:1;font-weight:800;letter-spacing:-.03em}
+.stat span{display:block;margin-top:8px;font-size:15px;font-weight:600}
+.stat:not(:first-child) span{color:var(--soft)}
+h2{font-size:clamp(30px,3.6vw,42px);line-height:1.05;letter-spacing:-.025em;margin:0 0 12px;font-weight:800;text-wrap:balance}
+.case{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,4vw,56px);padding-block:clamp(28px,3.5vw,44px);border-top:1px solid var(--line)}
+.case:first-of-type{border-top:0}
+.tag{font-size:14px;font-weight:700;color:var(--soft);margin:0 0 6px}
+.case h3{font-size:clamp(24px,2.6vw,30px);line-height:1.12;letter-spacing:-.02em;margin:0 0 12px;font-weight:800;text-wrap:balance}
+.case p{margin:0 0 12px;max-width:62ch}
+.case ul{margin:0;padding-left:20px}
+.case li{margin:4px 0}
+.res{background:var(--lane);border-radius:16px;padding:20px 22px;display:grid;gap:14px;align-content:start}
+.res div{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;align-items:baseline}
+.res b{font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:-.03em;line-height:1;white-space:nowrap;min-width:3.2ch}
+.res span{font-size:15px;color:var(--soft);font-weight:600}
+.res em{font-style:normal;font-weight:700}
+.res .q{display:block;font-size:16px;color:var(--ink);font-weight:600}
+.kit{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-top:28px}
+.kit div{background:var(--lane);border-radius:14px;padding:18px}
+.kit h3{margin:0 0 8px;font-size:16px}
+.kit p{margin:0;color:var(--soft);font-size:15px}
+.creds{display:flex;flex-wrap:wrap;gap:12px 32px;margin-top:22px;font-size:15px}
+.creds b{font-weight:800}
+.creds span{color:var(--soft)}
+.contact{background:var(--y);color:var(--yink)}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:32px;align-items:center}
+.contact h2{color:var(--yink);margin:0}
+.lines{display:grid;gap:10px}
+.lines a{display:flex;justify-content:space-between;gap:12px;align-items:center;min-height:56px;padding:0 20px;border-radius:14px;background:#101418;color:#ffffff;text-decoration:none;font-weight:700;overflow-wrap:anywhere}
+.lines a:hover{background:#ffffff;color:#101418}
+.lines a:focus-visible{outline:3px solid #101418;outline-offset:3px}
+.lines a span{font-weight:600;opacity:.75;font-size:14px}
+footer{padding:22px max(5vw,16px);font-size:14px;color:var(--soft);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:900px){.hero .wrap{grid-template-columns:minmax(0,1fr)}.kit{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid var(--line)}}
+@media(max-width:720px){.board{grid-template-columns:minmax(0,1fr)}.case{grid-template-columns:minmax(0,1fr)}.contact .wrap{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.kit{grid-template-columns:minmax(0,1fr)}nav ul{gap:16px}.stat{padding:20px 16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="mono" aria-hidden="true">HA</span>Hamish Ahern</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="band hero" id="top">
+  <div class="wrap">
+    <h1>I turn early-stage products into things teams can ship.</h1>
+    <div>
+      <p class="lede">Product and delivery in Melbourne. Four years across startup and scale-up tech: I write the specs, build the process and use the data to decide what's next.</p>
+      <p class="now">Now at <b>HaltiVision</b>, building AI road-safety technology.</p>
+      <div class="cta">
+        <a class="btn primary" href="#work">See the work</a>
+        <a class="btn" href="https://www.linkedin.com/in/hamishahern/">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="band" style="padding-top:0" aria-label="Projects at a glance">
+  <div class="wrap">
+    <div class="board">
+      <div class="lane on">
+        <div class="lh">Define <span>2 projects</span></div>
+        <a class="kc live" href="#nexus"><small>HaltiVision</small><strong>An AI evidence review platform</strong><span class="fig">72 features shipped</span></a>
+        <a class="kc" href="#vr"><small>FLAIM Systems</small><strong>A full VR product catalogue</strong><span class="fig">75+ scenarios</span></a>
+      </div>
+      <div class="lane on">
+        <div class="lh">Deliver <span>3 projects</span></div>
+        <a class="kc live" href="#zero"><small>HaltiVision</small><strong>Delivery foundations for a growing team</strong><span class="fig">7+ sprints</span></a>
+        <a class="kc" href="#pi"><small>FarmIQ Systems</small><strong>70 people, one planning rhythm</strong><span class="fig">87% confidence</span></a>
+        <a class="kc" href="#jira"><small>FLAIM Systems</small><strong>One shared system for three teams</strong><span class="fig">3 teams aligned</span></a>
+      </div>
+      <div class="lane on">
+        <div class="lh">Measure <span>1 project</span></div>
+        <a class="kc live" href="#pilot"><small>HaltiVision</small><strong>Pilot data into product improvements</strong><span class="fig">Accuracy improved</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" style="padding-top:0" aria-label="Key figures">
+  <div class="wrap stats">
+    <div class="stat"><b>72</b><span>features taken from spec to shipped build</span></div>
+    <div class="stat"><b>500+</b><span>user stories written</span></div>
+    <div class="stat"><b>87%</b><span>team confidence in quarterly plans</span></div>
+    <div class="stat"><b>75+</b><span>VR scenarios mapped solo</span></div>
+  </div>
+</section>
+
+
+<section class="band" id="work" style="padding-top:0">
+  <div class="wrap">
+    <h2 style="margin-bottom:4px">Selected work</h2>
+
+    <article class="case" id="nexus">
+      <div>
+        <p class="tag">HaltiVision · Product definition</p>
+        <h3>Defining an AI evidence review platform</h3>
+        <p>AI cameras detect road-safety violations. Those detections needed a platform where people review them and turn them into evidence.</p>
+        <ul>
+          <li>Specified the platform screen by screen</li>
+          <li>Designed access control, the review workflow and the verdict rules</li>
+          <li>Took features from written spec through QA to shipped build</li>
+        </ul>
+      </div>
+      <div class="res">
+        <div><b>72</b><span>features taken from spec to shipped build</span></div>
+        <div><b>16+</b><span>screens specified</span></div>
+        <div><b>13</b><span>access decisions settled</span></div>
+      </div>
+    </article>
+
+    <article class="case" id="pilot">
+      <div>
+        <p class="tag">HaltiVision · Data and insights</p>
+        <h3>Turning pilot data into product improvements</h3>
+        <p>A live camera pilot, with regular reporting to show where to focus next.</p>
+        <ul>
+          <li>Produced regular performance reporting across pilot sites</li>
+          <li>Broke performance down by conditions to find the next win</li>
+          <li>Validated a camera settings change before it rolled out</li>
+        </ul>
+      </div>
+      <div class="res">
+        <span class="q">Accuracy <em>measurably improved</em> after the settings change.</span>
+        <span class="q">Insights fed straight into <em>camera tuning</em> and <em>sprint reviews</em>.</span>
+      </div>
+    </article>
+
+    <article class="case" id="zero">
+      <div>
+        <p class="tag">HaltiVision · Delivery</p>
+        <h3>Building delivery foundations for a growing team</h3>
+        <p>A small, fast-moving team taking several products from idea to delivery at once.</p>
+        <ul>
+          <li>Built the Agile framework and ran sprints end to end</li>
+          <li>Rebuilt project tracking around delivery stages</li>
+          <li>Set up delivery for 3 new product lines, with AI-assisted workflows to keep the backlog healthy</li>
+        </ul>
+      </div>
+      <div class="res">
+        <div><b>7+</b><span>sprints run</span></div>
+        <div><b>500+</b><span>user stories written</span></div>
+        <div><b>6</b><span>Jira automations and AI workflows</span></div>
+      </div>
+    </article>
+
+    <article class="case" id="pi">
+      <div>
+        <p class="tag">FarmIQ Systems · Scrum Master</p>
+        <h3>Bringing 70 people into one planning rhythm</h3>
+        <p>Eleven teams, one quarterly session to agree goals, dependencies and risks together.</p>
+        <ul>
+          <li>Co-led quarterly SAFe PI Planning with the Agile Coach</li>
+          <li>Ran Scrum across technical and non-technical teams</li>
+          <li>Reshaped the format each quarter from participant feedback</li>
+        </ul>
+      </div>
+      <div class="res">
+        <div><b>87%</b><span>confidence in quarterly plans</span></div>
+        <div><b>7</b><span>PI Planning cycles run</span></div>
+        <div><b>70</b><span>people across 11 teams</span></div>
+      </div>
+    </article>
+
+    <article class="case" id="vr">
+      <div>
+        <p class="tag">FLAIM Systems · Solutions Consultant</p>
+        <h3>Documenting an entire VR product catalogue</h3>
+        <p>A growing catalogue of VR training scenarios, brought together into one source of truth.</p>
+        <ul>
+          <li>Ran and mapped every scenario, decision point and outcome</li>
+          <li>Built a QA reference for developers and a knowledge base for support</li>
+          <li>Wrote the customer-facing simulation guide</li>
+        </ul>
+      </div>
+      <div class="res">
+        <div><b>75+</b><span>scenarios mapped solo</span></div>
+        <div><b>94</b><span>page customer guide</span></div>
+        <div><b>3</b><span>audiences: dev, support, customers</span></div>
+      </div>
+    </article>
+
+    <article class="case" id="jira">
+      <div>
+        <p class="tag">FLAIM Systems · Solutions Consultant</p>
+        <h3>One shared system for sales, onboarding and support</h3>
+        <p>Sales, onboarding and support teams, brought onto one shared way of tracking work.</p>
+        <ul>
+          <li>Mapped how work actually flowed across three teams</li>
+          <li>Built two Jira spaces with epics tied to company OKRs</li>
+          <li>Coordinated a VR rollout to the Australian Defence Force, from QA to training</li>
+        </ul>
+      </div>
+      <div class="res">
+        <div><b>3</b><span>teams on one system</span></div>
+        <div><b>2</b><span>Jira spaces built</span></div>
+        <span class="q"><em>Real-time visibility</em> for leadership.</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="band" style="padding-top:0" aria-labelledby="kit-h">
+  <div class="wrap">
+    <h2 id="kit-h">Toolkit</h2>
+    <div class="kit">
+      <div><h3>Delivery</h3><p>Jira, Jira Automation, Confluence, TeamCity, SharePoint</p></div>
+      <div><h3>Mapping and design</h3><p>Miro, LucidChart, Mural, Canva</p></div>
+      <div><h3>AI and automation</h3><p>Claude (agents, skills, scheduled workflows), Zapier</p></div>
+      <div><h3>Business</h3><p>Salesforce, Excel, Odoo</p></div>
+    </div>
+    <div class="creds">
+      <p style="margin:0"><b>Professional Scrum Master I</b> <span>Scrum.org, scored 94%</span> <a href="https://www.credly.com/badges/e1cf3f0d-00ef-4019-a86e-177f12eb14bf">Verify</a></p>
+      <p style="margin:0"><b>Bachelor of Business</b> <span>University of Waikato, Strategic Management</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="band contact" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Let's talk.</h2>
+    </div>
+    <div class="lines">
+      <a href="mailto:hamish.ahern1@gmail.com">hamish.ahern1@gmail.com <span>Email</span></a>
+      <a href="https://www.linkedin.com/in/hamishahern/">linkedin.com/in/hamishahern <span>LinkedIn</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap"><span>Hamish Ahern · Melbourne, Australia</span><a href="#top">Back to top</a></div>
+</footer>
+
+</body>
+</html>
